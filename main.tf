@@ -145,3 +145,8 @@ data "aws_ami" "aws-linux" {
 
   owners = ["amazon"]
 }
+
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
