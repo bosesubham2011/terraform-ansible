@@ -1,5 +1,18 @@
+variable "vpc_id"{
+
+}
+
+variable "project" {
+  default = "america"
+}
+variable "env" {
+  default = "production"
+}
+
+
+
 resource "aws_security_group" "alb-sg-america" {
-  vpc_id = "${aws_vpc.main-vpc-america.id}"
+  vpc_id = "${var.vpc_id}"
 
   # Inbound Rules
   # HTTP access from anywhere
@@ -29,6 +42,11 @@ resource "aws_security_group" "alb-sg-america" {
 
   tags = {
     Name = "alb-sg-america"
-    Project = "America"
+    Project = var.project
+    Environment = var.env
   }
+}
+
+output "ansiblesg_id" { 
+  value = "${aws_security_group.alb-sg-america.id}"
 }

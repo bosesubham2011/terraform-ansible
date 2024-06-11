@@ -1,14 +1,29 @@
+variable "vpc_id"{
+
+}
+
+variable "project" {
+  default = "america"
+}
+variable "env" {
+  default = "production"
+}
+
+variable "ansiblesg_id"{
+
+}
+
 resource "aws_security_group" "rds-sg-america" {
   name        = "rds-sg-america"
   description = "Allow inbound traffic from application layer"
-  vpc_id      = aws_vpc.main-vpc-america.id
+  vpc_id      = var.vpc_id
 
   ingress {
     description     = "Allow traffic from application layer"
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.demosg.id]
+    security_groups = [var.ansiblesg_id]
   }
 
   egress {
@@ -20,6 +35,11 @@ resource "aws_security_group" "rds-sg-america" {
 
   tags = {
     Name = "rds-sg-america"
-    Project = "America"
+    Environment = lower(var.env)
+    Project = lower(var.project)
   }
+}
+
+output "rdssg_id" { 
+  value = "${aws_security_group.rds-sg-america.id}"
 }
