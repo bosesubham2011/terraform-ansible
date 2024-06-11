@@ -1,10 +1,4 @@
-variable "tag"   {}
-variable "region" {}
-variable "cidr"   {}
-variable "zones" {
-  type    = "list"
-  default = []
-}
+
 variable "env" { 
   default = "production" 
 }

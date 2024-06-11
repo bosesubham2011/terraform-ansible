@@ -1,13 +1,9 @@
 variable "name" {
   default = "vpc-america"
 }
-variable "regionname" {}
+
 variable "cidr" {}
 variable "domain_int" {}
-variable "zones" {
-  type    = list(string)
-  default = []
-}
 variable "env" { 
     default = "production" 
     }
