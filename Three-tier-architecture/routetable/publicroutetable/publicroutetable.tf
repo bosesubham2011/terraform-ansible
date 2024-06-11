@@ -43,6 +43,5 @@ resource "aws_route_table_association" "publicroutetableassoc-america-2" {
 output "public_subnets_rt_ids" { 
  value = [
  "${aws_route_table.publicroutetable-america-1.id}"
-,"${aws_route_table.publicroutetable-america-2.id}"
 ] 
 }

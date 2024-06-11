@@ -2,7 +2,7 @@
 variable "name"  { default = "nat" }
 
 variable "subnet_ids" {
-    type    = "list"
+    type    = list
     default = []
 }
 

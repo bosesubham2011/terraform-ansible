@@ -7,8 +7,7 @@ variable "subnetid-ansiblenode"{
 }
 
 variable "ansible-sg-america"{
-  type = "list"
-  default = []
+  
 }
 
 variable "ssh_key_name"{

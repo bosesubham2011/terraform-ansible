@@ -1,7 +1,6 @@
 # Creating External LoadBalancer
 variable subnet_ids {
-  type = "list"
-  default = []
+  type = list
 }
 
 variable albsg_id {

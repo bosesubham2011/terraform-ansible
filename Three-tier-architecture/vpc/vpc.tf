@@ -60,7 +60,7 @@ resource "aws_route53_zone_association" "environment" {
 */
 
 resource "aws_vpc_dhcp_options" "dhcpoptions-america" {
-  domain_name         = "${var.provider["region"]}.compute.internal ${lower(var.name)}.${var.domain_int} consul"
+  domain_name         = ""
   domain_name_servers = ["169.254.169.253", "AmazonProvidedDNS"]
   tags = {
     Name        = "dhcp-america"

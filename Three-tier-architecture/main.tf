@@ -53,6 +53,7 @@ module "ansible"{
     private_key_path = ""
     subnetid-ansiblemaster = module.cidr.subnet_ids[0]
     subnetid-ansiblenode = module.cidr.subnet_ids[2]
+    ansible-sg-america = module.ansiblesg.ansiblesg_id
 }
 
 module "ansiblesg"{
@@ -70,6 +71,7 @@ module "alb"{
     albsg_id = module.albsg.ansiblesg_id
     vpc_id = module.vpc.vpc_id
     ansible-master-america = module.ansible.ansible_ec2_ids[0]
+    subnet_ids = [module.cidr.subnet_ids[0],module.cidr.subnet_ids[1]]
 }
 
 
