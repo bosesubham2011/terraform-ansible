@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-elk
+
+- name: Setting SELinux to permissive
+  selinux: policy=targeted state=permissive
+
+- name: Install Java
+  ansible.builtin.include_tasks: java.yml
+
+- name: Generate SSL
+  ansible.builtin.include_tasks: generatessl.yml
+
+- name: Install ElasticSearch
+  ansible.builtin.include_tasks: elasticsearch.yml
+
+- name: Install Kibana
+  ansible.builtin.include_tasks: kibana.yml
+
+- name: Install Nginx
+  ansible.builtin.include_tasksclude: nginx.yml
+
+- name: Install Logstash
+  ansible.builtin.include_tasks: logstash.yml
