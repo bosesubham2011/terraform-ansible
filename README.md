@@ -6,6 +6,7 @@ This is a basic terraform implementation with ansible
 # Simple-Terraform
 
 It contains a file named main.tf which will create a basic VPC and deploy EC2 instances if ran against proper commands
+
 terraform init<br>
 terraform plan -var-file varstf.tfvars
 
