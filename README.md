@@ -6,7 +6,7 @@ This is a basic terraform implementation with ansible
 # Simple-Terraform
 
 It contains a file named main.tf which will create a basic VPC and deploy EC2 instances if ran against proper commands
-terraform init
+terraform init<br>
 terraform plan -var-file varstf.tfvars
 
 # Three-tier-architecture
@@ -14,7 +14,8 @@ terraform plan -var-file varstf.tfvars
 It contains code which can deploy a 3 tier architecture with RDS and ALB. The Application being on the mid tier.
 It will also deploy two EC2 servers
 
-terraform ini
+terraform init
+<br>
 terraform plan
 
 # Terraform-Ansible-DeploymentELHstack
