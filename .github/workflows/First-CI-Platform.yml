@@ -39,9 +39,11 @@ jobs:
 
       - name: Change to Terraform directory
         run: |
+          cd Three-tier-architecture
           echo "Check where we are in the directory structure"
           pwd
           echo "Check what files are in there"
           ls -ltrh
+          terraform init
 
       
