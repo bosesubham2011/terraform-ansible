@@ -26,18 +26,22 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Configures AWS credentials
+        uses: actions/setup-aws@v2
 
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Change to Terraform directory
+        run: cd ./Three-tier-architecture
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo "Check if Python is present!"
-          terraform --version
-          echo
-          echo "Where are we?"
-          pwd
-          echo
-          echo "Where are the processes that are running?"
-          ps -ef
+      - name: Install Terraform
+        run: terraform init
+      
+      -name: Terraform validation and linting
+       run: terraform validate
+
+      -name: Terraform testing
+       run: terraform plan
           
