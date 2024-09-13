@@ -48,5 +48,5 @@ resource "aws_security_group" "alb-sg-america" {
 }
 
 output "ansiblesg_id" { 
-  value = "${aws_security_group.alb-sg-america.id}"
+  value = ["${aws_security_group.alb-sg-america.id}"]
 }
