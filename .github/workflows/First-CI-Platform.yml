@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "Check if Python is present!"
-          python --version
+          terraform --version
           echo
           echo "Where are we?"
           pwd
