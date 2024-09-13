@@ -47,7 +47,11 @@ jobs:
           terraform init
 
       - name: Terraform validation and linting
-        run: terraform validate
+        run: |
+          cd Three-tier-architecture
+          terraform validate
 
       - name: Terraform testing
-        run: terraform plan
+        run: |
+          cd Three-tier-architecture
+          terraform plan
