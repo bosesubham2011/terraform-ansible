@@ -1,18 +1,18 @@
 # Creating External LoadBalancer
-variable subnet_ids {
-  type = list
+variable "subnet_ids" {
+  type = list(any)
 }
 
-variable albsg_id {
+variable "albsg_id" {
+  type = list(any)
+}
+
+variable "vpc_id" {
 
 }
 
-variable "vpc_id"{
 
-}
-
-
-variable "ansible-master-america"{
+variable "ansible-master-america" {
 
 }
 
@@ -30,9 +30,9 @@ resource "aws_lb" "external-alb-america" {
   security_groups    = var.albsg_id
   subnets            = var.subnet_ids
   tags = {
-    Name = "external-alb-america"
+    Name        = "external-alb-america"
     Environment = lower(var.env)
-    Project = lower(var.project)
+    Project     = lower(var.project)
   }
 }
 
@@ -66,6 +66,6 @@ resource "aws_lb_listener" "listeneralb-america" {
 
 output "alb_items" {
   value = [
- aws_lb.external-alb-america.arn
-,aws_lb.external-alb-america.dns_name]
+    aws_lb.external-alb-america.arn
+  , aws_lb.external-alb-america.dns_name]
 }
