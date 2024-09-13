@@ -46,4 +46,8 @@ jobs:
           ls -ltrh
           terraform init
 
-      
+      - name: Terraform validation and linting
+        run: terraform validate
+
+      - name: Terraform testing
+        run: terraform plan
