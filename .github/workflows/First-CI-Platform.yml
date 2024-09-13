@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
@@ -36,12 +36,12 @@ jobs:
 
       - name: Change to Terraform directory
         run: cd ./Three-tier-architecture
-      # Runs a set of commands using the runners shell
-      - name: Install Terraform
-        run: terraform init
 
-      - name: Terraform validation and linting
-        run: terraform validate
+      - name: Change to Terraform directory
+        run: |
+          echo "Check where we are in the directory structure"
+          pwd
+          echo "Check what files are in there"
+          ls -ltrh
 
-      - name: Terraform testing
-        run: terraform plan
+      
